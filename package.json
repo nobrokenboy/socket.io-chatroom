@@ -1,0 +1,28 @@
+{
+  "name": "socket-chat-example",
+  "version": "0.0.1",
+  "description": "my first socket.io app",
+  "main": "index.js",
+  "scripts": {
+    "test": "test"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/nobrokenboy/socket.io-chatroom.git"
+  },
+  "keywords": [
+    "socket.io",
+    "chatroom",
+    "express"
+  ],
+  "author": "nobrokenboy",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/nobrokenboy/socket.io-chatroom/issues"
+  },
+  "homepage": "https://github.com/nobrokenboy/socket.io-chatroom#readme",
+  "dependencies": {
+    "express": "^4.10.2",
+    "socket.io": "^1.5.1"
+  }
+}
