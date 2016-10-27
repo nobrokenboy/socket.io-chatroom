@@ -3,26 +3,51 @@
 <head>
     <meta charset="UTF-8">
     <title>socket.io chat</title>
+    <script src="//at.alicdn.com/t/font_zehchysi4tj1nhfr.js"></script>
     <style>
         * { margin: 0; padding: 0; box-sizing: border-box; }
         body { font: 13px Helvetica, Arial; }
         html,body{width:100%;height:100%;overflow-x:hidden;}
-        form { background: #000; padding: 3px; position: fixed; bottom: 0; width: 100%; }
-        form input { border: 0; padding: 10px; width: 90%; margin-right: .5%; }
-        form button { width: 9%; background: rgb(130, 224, 255); border: none; padding: 10px; }
+        .icon {
+            width:2em; height:2em;
+            vertical-align: -0.15em;
+            fill: currentColor;
+            overflow: hidden;
+        }
+        .chat-content form { background: #000; padding:20px; position: fixed; bottom: 0; width: 100%; }
+        #called{width:250px;height:40px;}
+        .chat-content form input { border: 0; padding: 10px; width: 90%; height:120px;margin-right: .5%;margin-bottom:20px; }
+        .chat-content form button { width: 9%; background: rgb(130, 224, 255); border: none; padding: 30px; }
         #messages { list-style-type: none; margin: 0; padding: 0;overflow-y:scroll }
         #messages li { padding: 5px 10px; }
     </style>
 </head>
 <body>
-    <h1 align="center">剩余一族聊天室</h1>
-    <ul id="messages"></ul>
-    <form action="">
-        <input id="m" autocomplete="off"/>
-        <button>send</button>
-    </form>
+    <section class="chat-content">
+        <h1 align="center">
+            <svg class="icon" aria-hidden="true">
+                <use xlink:href="#icon-boluo"></use>
+            </svg>
+            剩余一族聊天室
+        </h1>
+        <ul id="messages"></ul>
+        <form action="">
+            <h3>
+                <svg class="icon" aria-hidden="true">
+                    <use xlink:href="#icon-chief"></use>
+                </svg>
+                请输入昵称
+            </h3>
+            <input type='text' id='called' placeholder="请输入昵称" />
+            <input id="m" autocomplete="off" placeholder="吐槽下"/>
+            <button>send</button>
+        </form>
+    </section>
     <script src="/socket.io/socket.io.js"></script>
     <script src="http://code.jquery.com/jquery-1.11.1.js"></script>
+    <script>
+        /*alert(document.getElementsByClassName("nicheng").innerHTML);*/
+    </script>
     <script>
         var socket=io();
         $("form").submit(function(){
