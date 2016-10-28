@@ -10,14 +10,21 @@ app.get("/",function(req,res){
 
 });
 
-//socket.io
+//监听客户端的连接
 io.on('connection',function(socket) {
+    //监听客户端发送的消息
     socket.on('chat message',function(msg){
         /*console.log('message:'+msg);*/
-        //If you want to send a message to everyone except for a certain socket, we have the broadcast flag:
-      /*  socket.broadcast.emit('hi');*/
         //发送信息给所有的人
-        io.emit('chat message',msg);
+        /*io.emit('chat message',msg);*/
+        //除了自己之外其他人可以接收信息
+       /* socket.broadcast.emit('chat message',msg);*/
+        //貌似跟io.emit没有什么区别
+        /* io.sockets.emit('chat message',msg);*/
+        //实现特定的一对一对话
+        io.sockets.socket(socketid).emit('message', 'for your eyes only');
+        //只能看到自己的
+        socket.emit('chat message',msg);
     });
 
     /*socket.on('disconnect',function(){
